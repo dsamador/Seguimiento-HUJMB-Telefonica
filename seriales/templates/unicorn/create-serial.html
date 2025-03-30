@@ -1,9 +1,18 @@
 {% load unicorn %}
-<div>
-    {% if state == "Add" %}
-    <button 
-        class="btn btn-primary"
-        unicorn:click="add">Agregar un computador
-    </button>    
-    {% endif %}
+<div class="card">
+    <div class="card-header mb-2">
+        <label class="text-center form-label" for="serial">Digita el serial</label>
+    </div>
+    <div class="card-body">
+        <input class="form-control" unicorn:model.defer="serial" type="text" id="serial" placeholder="4CE338BK" />
+        <small style="color:red">&nbsp;{{ unicorn.errors.serial.0.message }}</small>
+        <div class="d-grid gap-1 mt-1">
+            <button 
+            type="submit"
+            class="btn btn-primary text-center"
+            unicorn:click="create"
+            >Agregar un computador</button>
+        </div>
+    </div>
+    
 </div>
