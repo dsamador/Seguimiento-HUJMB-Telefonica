@@ -1,0 +1,12 @@
+Listado:
+<div>
+  {% if not seriales %}
+      <p>No seriales have been registered yet!</p>
+  {% else %}
+  <ul>
+  {% for serial in seriales %}
+      <li>{{ serial.serial }}</li>
+  {% endfor %}
+  </ul>
+  {% endif %}  
+</div>

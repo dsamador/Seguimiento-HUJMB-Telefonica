@@ -1,0 +1,9 @@
+{% load unicorn %}
+<div>
+    {% if state == "Add" %}
+    <button 
+        class="btn btn-primary"
+        unicorn:click="add">Agregar un computador
+    </button>    
+    {% endif %}
+</div>
