@@ -41,6 +41,7 @@ THIRD_PARTY_APPS = [
     'django_userforeignkey',
     'django_unicorn',
     'django_browser_reload',
+    'import_export',
 ]
 MY_APPS = [
     'seriales'

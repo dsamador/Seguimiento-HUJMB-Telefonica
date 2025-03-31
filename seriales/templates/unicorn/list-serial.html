@@ -1,0 +1,23 @@
+{% load unicorn %}
+<table unicorn:model.defer = "computadores" class="table">
+    <thead>
+        <tr>
+            <th>Serial</th>
+            <th>Mantenimiento</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for computador in computadores %}
+        <tr>
+            <td>{{ computador.serial }}</td>
+            <td>
+                {% if computador.mantenimiento_realizado %}
+                    ✅ Sí
+                {% else %}
+                    ❌ No
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

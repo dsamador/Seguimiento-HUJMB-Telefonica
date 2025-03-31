@@ -15,5 +15,7 @@ class Computador(models.Model):
     super(Computador, self).save(*args, **kwargs)
   
   def __str__(self):
-    return self.serial
+    estado = "Sí" if self.mantenimiento_realizado else "No"
+    return f"{self.serial} | Mantenimiento: {estado}"
+
 
