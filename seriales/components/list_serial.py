@@ -6,3 +6,12 @@ class ListSerialView(UnicornView):
 
     def mount(self):
         self.computadores = Computador.objects.all()
+    
+    def realizados(self):
+        self.computadores = Computador.objects.filter(mantenimiento_realizado=True)
+    
+    def faltantes(self):
+        self.computadores = Computador.objects.filter(mantenimiento_realizado=False)
+    
+    def todos(self):
+        self.computadores = Computador.objects.all()

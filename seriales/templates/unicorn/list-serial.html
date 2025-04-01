@@ -1,23 +1,30 @@
 {% load unicorn %}
-<table unicorn:model.defer = "computadores" class="table">
-    <thead>
-        <tr>
-            <th>Serial</th>
-            <th>Mantenimiento</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for computador in computadores %}
-        <tr>
-            <td>{{ computador.serial }}</td>
-            <td>
-                {% if computador.mantenimiento_realizado %}
+<div>
+    <div class="d-grid gap-1 mt-1">
+        <button class="btn btn-success" unicorn:click="realizados" >Realizados</button>
+        <button class="btn btn-danger" unicorn:click="faltantes">Faltantes</button>
+        <button class="btn btn-primary" unicorn:click="todos">Todos</button>
+    </div>
+    <table unicorn:model.defer = "computadores" class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th class="col" >Serial</th>
+                <th class="col" >Mantenimiento</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider" >
+            {% for computador in computadores %}
+            <tr>
+                <td>{{ computador.serial }}</td>
+                <td>
+                    {% if computador.mantenimiento_realizado %}
                     ✅ Sí
-                {% else %}
+                    {% else %}
                     ❌ No
-                {% endif %}
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
