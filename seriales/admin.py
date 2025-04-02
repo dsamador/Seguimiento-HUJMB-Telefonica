@@ -9,7 +9,7 @@ from .models import Computador
 class ComputadorResource(resources.ModelResource):
   class Meta:
     model = Computador
-    fields = ('id','serial') 
+    fields = ('id','serial','mantenimiento_realizado') 
 
 class ComputadorAdmin(ImportExportModelAdmin, admin.ModelAdmin):
   resource_class = ComputadorResource

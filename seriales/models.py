@@ -8,7 +8,7 @@ class Computador(models.Model):
   mantenimiento_realizado = models.BooleanField(default=False)
   user = UserForeignKey(auto_user_add=True, auto_user=True)
   fecha_registro = models.DateField(auto_now=True)
-  fecha_modificacion = models.DateTimeField(auto_now_add=True)
+  fecha_modificacion = models.DateTimeField(auto_now=True)
 
   def save(self, *args, **kwargs):
     self.serial = self.serial.upper()

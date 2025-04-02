@@ -2,13 +2,13 @@ from django_unicorn.components import UnicornView
 from seriales.models import Computador
 
 class ListSerialView(UnicornView):
-    computadores: list[Computador] = None
+    computadores = []
     query = ""
     resultados = []
     realizados_count = 0
     faltantes_count = 0
     total_count = 0
-
+    
 
     def mount(self):
         self.computadores = Computador.objects.all()
@@ -41,4 +41,16 @@ class ListSerialView(UnicornView):
                 c for c in self.computadores if all(letra in c.serial for letra in letras)
             ]
         else:
-            self.computadores = Computador.objects.all()
+            self.computadores = Computador.objects.all()   
+
+            
+
+ #   def cambiar_estado(self, computador_id):
+        #"""Cambia el estado de mantenimiento de un computador."""
+        #computador = Computador.objects.get(id=computador_id)
+        #computador.mantenimiento_realizado = not computador.mantenimiento_realizado  # Alternar estado
+        
+        #computador.save()
+        #self.hydrate() 
+        #self.todos()  # Refrescar la tabla
+        #self.refresh()

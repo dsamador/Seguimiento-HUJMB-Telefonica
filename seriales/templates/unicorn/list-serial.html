@@ -28,23 +28,26 @@
     <table unicorn:model.defer = "computadores" class="table table-striped table-hover">
         <thead>
             <tr>
-                <th class="col" >Serial</th>
-                <th class="col" >Mantenimiento</th>
+                <th class="col">Serial</th>
+                <th class="col">¿Mantenimiento realizado?</th>                
             </tr>
         </thead>
         <tbody class="table-group-divider" >
             {% for computador in computadores %}
-            <tr>
-                <td>{{ computador.serial }}</td>
+            <tr>               
+                <td>{{ computador.serial }}</td>                                             
                 <td>
                     {% if computador.mantenimiento_realizado %}
                     ✅ Sí
                     {% else %}
                     ❌ No
                     {% endif %}
-                </td>
+                </td>               
             </tr>
             {% endfor %}
         </tbody>
-    </table>
+    </table>  
 </div>
+
+
+  
