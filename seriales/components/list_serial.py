@@ -5,9 +5,20 @@ class ListSerialView(UnicornView):
     computadores: list[Computador] = None
     query = ""
     resultados = []
+    realizados_count = 0
+    faltantes_count = 0
+    total_count = 0
+
 
     def mount(self):
         self.computadores = Computador.objects.all()
+        self.actualizar_contadores()
+    
+    def actualizar_contadores(self):
+        """Consulta y actualiza los contadores de computadores según su estado."""
+        self.realizados_count = Computador.objects.filter(mantenimiento_realizado=True).count()
+        self.faltantes_count = Computador.objects.filter(mantenimiento_realizado=False).count()
+        self.total_count = Computador.objects.count()
     
     def realizados(self):
         self.computadores = Computador.objects.filter(mantenimiento_realizado=True)
