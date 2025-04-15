@@ -1,0 +1,1 @@
+web: gunicorn mantenimientos.wsgi --log-file
